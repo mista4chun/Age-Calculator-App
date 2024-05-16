@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Simple Tailwind Starter</title>
+  </head>
+  <body>
+    <section>
+      <div
+        class="flex items-center justify-center min-h-screen bg-OffWhite mx-auto"
+      >
+        <div
+          class="relative rounded-3xl rounded-br-[134px] bg-white py-14 px-10 max-w-sm md:max-w-2xl w-full"
+        >
+          <div class="flex items-center space-x-7 mb-16 md:mb-0">
+            <div class="flex flex-col justify-center space-y-1">
+              <label
+                for="html"
+                class="text-SmokeyGrey font-semibold tracking-widest text-xs"
+                >DAY</label
+              >
+
+              <input
+                type="number"
+                name=""
+                id="day"
+                class="inline-block p-2 border hover:border-Purple required:border-red-500 invalid:border-red-500 outline-none w-20 rounded-md md:p-4 md:w-32"
+                placeholder="DD"
+              />
+              <small class="text-red-400 error-day"></small>
+            </div>
+
+            <div class="flex flex-col justify-center space-y-1">
+              <label
+                for="html"
+                class="text-SmokeyGrey font-semibold tracking-widest text-xs"
+                >MONTH</label
+              >
+
+              <input
+                type="number"
+                name=""
+                id="month"
+                class="inline-block p-2 border hover:border-Purple required:border-red-500 invalid:border-red-500 outline-none w-20 rounded-md md:p-4 md:w-32"
+                placeholder="MM"
+              />
+              <small class="text-red-400 error-month"></small>
+            </div>
+            <div class="flex flex-col justify-center space-y-1 group">
+              <label
+                for="html"
+                class="text-SmokeyGrey font-semibold group-required:text-red-500 tracking-widest text-xs"
+                >YEAR</label
+              >
+
+              <input
+                type="number"
+                name=""
+                id="year"
+                class="inline-block p-2 border hover:border-Purple group-required:border-red-500 outline-none w-20 rounded-md md:p-4 md:w-32"
+                placeholder="YYYY"
+              />
+              <small class="tracking-tighter text-red-400 error-year"></small>
+            </div>
+          </div>
+
+          <div class="relative my-8 border-b border-gray-200 w-45 md:w-[550px]"></div>
+          <button
+            id="submit-btn"
+            class="absolute top-36 right-[43%]  scale-90 rounded-full bg-Purple hover:bg-black md:right-10 md:top-32 md:scale-100"
+          >
+            <img src="images/icon-arrow.svg" alt="" class="h-35 w-35 p-3.5" />
+          </button>
+
+          <div class="flex flex-col space-y-4 mb-5 mt-12">
+            <h1 class="text-5xl font-extrabold italic  md:text-7xl">
+              <span class="output-years text-Purple ">--</span> years
+            </h1>
+            <h1 class="text-5xl font-extrabold italic md:text-7xl
+           ">
+              <span class="output-months text-Purple ">--</span>
+              months
+            </h1>
+            <h1 class="text-5xl font-extrabold italic md:text-7xl
+            
+            ">
+              <span class="output-days text-Purple ">--</span> days
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
