@@ -70,20 +70,43 @@ inputYear.addEventListener('input', (e) => {
 });
 
 function calculateAge() {
-  if (isValid) {
-    let birthday = `${inputMonth.value}/${inputDay.value}/${inputYear.value}`;
-    const birthdayObj = new Date(birthday);
+  // Parse the birthdate string into a Date object
+  let birthday = `${inputMonth.value}/${inputDay.value}/${inputYear.value}`;
+  const birthDateObj = new Date(birthday);
+  const now = new Date(); // Get the current date
 
-    ageDiffMill = Date.now() - birthdayObj;
-    const ageDate = new Date(ageDiffMill);
-    const ageYears = ageDate.getFullYear() - 1970;
-    const ageMonth = ageDate.getMonth();
-    const ageDay = ageDate.getDay();
-    outputDays.textContent = ageDay;
-    outputMonths.textContent = ageMonth;
-    outputYears.textContent = ageYears;
-  } else {
-    alert('Input a valid Date');
+  // Check if the birthdate is invalid (e.g., "Invalid Date" due to an invalid input)
+  if (isNaN(birthDateObj)) {
+    alert('Invalid birthdate');
   }
-}
 
+  // Calculate the difference in years
+  let ageYears = now.getFullYear() - birthDateObj.getFullYear();
+  let ageMonths = now.getMonth() - birthDateObj.getMonth();
+  let ageDays = now.getDate() - birthDateObj.getDate();
+
+  // Adjust the age if the current month and day haven't passed the birth month and day yet
+  if (ageMonths < 0 || (ageMonths === 0 && ageDays < 0)) {
+    ageYears--; // Subtract 1 year if the birthday hasn't occurred yet this year
+    ageMonths += 12; // Add 12 months to compensate for the negative difference
+  }
+
+  // Adjust the age months to be in the range of 0-11 (representing full months)
+  if (ageMonths < 0) {
+    ageMonths = 0;
+  }
+
+  // Adjust the age days to be positive
+  if (ageDays < 0) {
+    // Calculate the number of days in the previous month
+    const prevMonthLastDay = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      0
+    ).getDate();
+    ageDays = prevMonthLastDay + ageDays;
+  }
+  outputDays.textContent = ageDays;
+  outputMonths.textContent = ageMonths;
+  outputYears.textContent = ageYears;
+}
