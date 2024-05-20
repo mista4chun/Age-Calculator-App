@@ -560,6 +560,18 @@ video {
   top: 9rem;
 }
 
+.top-3 {
+  top: 0.75rem;
+}
+
+.top-40 {
+  top: 10rem;
+}
+
+.top-44 {
+  top: 11rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -588,6 +600,10 @@ video {
 
 .flex {
   display: flex;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .min-h-screen {
